@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS Team Skills & Interest Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>RSS Team Skills & Interest Survey</h1>
+            <p>Help us understand your skills and interests for upcoming projects</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% Complete</div>
+        </div>
+        
+        <form id="surveyForm">
+            <!-- Respondent Info -->
+            <div class="section">
+                <div class="form-group">
+                    <label for="name" class="required">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="required">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+            
+            <!-- 1. Skill Proficiency -->
+            <div class="section">
+                <h2 class="section-title">1. Skill Proficiency</h2>
+                <div class="info-box">
+                    <p><strong>Rate your experience level with each skill:</strong></p>
+                    <ul>
+                        <li><strong>1 - No experience:</strong> Never used or learned this skill</li>
+                        <li><strong>2 - Basic/familiar:</strong> Some exposure, limited practical use</li>
+                        <li><strong>3 - Comfortable:</strong> Can use independently for routine tasks</li>
+                        <li><strong>4 - Proficient:</strong> Strong skills, can handle complex tasks</li>
+                        <li><strong>5 - Expert:</strong> Deep expertise, can teach/mentor others</li>
+                    </ul>
+                    <p style="margin-top: 10px; color: #e74c3c;"><strong>⚠️ Required:</strong> Please rate at least one skill to continue.</p>
+                </div>
+                
+                <div class="skill-groups">
+                    <!-- Microsoft Tools Group -->
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Microsoft Tools & Cloud</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SharePoint</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sharepoint" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sharepoint" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sharepoint" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sharepoint" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sharepoint" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Copilot/MS AI tools</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_copilot" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_copilot" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_copilot" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_copilot" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_copilot" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Power BI</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_powerbi" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_powerbi" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_powerbi" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_powerbi" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_powerbi" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure/Microsoft 365</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_azure" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_azure" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_azure" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_azure" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_azure" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Excel (Advanced)</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_excel" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_excel" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_excel" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_excel" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_excel" value="5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                    <!-- Networking & Infrastructure Group -->
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Networking & Infrastructure</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>VeloCloud/SD-WAN</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_velocloud" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_velocloud" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_velocloud" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_velocloud" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_velocloud" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Network Switches (Cisco/Juniper/etc.)</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_switches" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_switches" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_switches" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_switches" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_switches" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Firewall Management</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_firewall" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_firewall" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_firewall" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_firewall" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_firewall" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Network Protocols (TCP/IP, VLAN, etc.)</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_protocols" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_protocols" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_protocols" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_protocols" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_protocols" value="5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <!-- Development Group -->
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Development & Programming</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Python</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_python" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_python" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_python" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_python" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_python" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>C++</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_cpp" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_cpp" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_cpp" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_cpp" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_cpp" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Java</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_java" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_java" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_java" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_java" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_java" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQL</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sql" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sql" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sql" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sql" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_sql" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Git/Azure DevOps</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_git" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_git" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_git" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_git" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_git" value="5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Automation & Integration Group -->
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">Automation & Integration</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Automation tools (e.g., Power Automate, Zapier)</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_automation" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_automation" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_automation" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_automation" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_automation" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>OCR tools</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_ocr" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_ocr" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_ocr" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_ocr" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_ocr" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>API Integration</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_api" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_api" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_api" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_api" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_api" value="5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- IT Systems Group -->
+                    <div class="skill-group">
+                        <h3 class="skill-group-title">IT Systems & Infrastructure</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ServiceNow</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_servicenow" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_servicenow" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_servicenow" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_servicenow" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_servicenow" value="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Active Directory</td>
+                                        <td class="rating-cell"><input type="radio" name="skill_activedirectory" value="1"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_activedirectory" value="2"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_activedirectory" value="3"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_activedirectory" value="4"></td>
+                                        <td class="rating-cell"><input type="radio" name="skill_activedirectory" value="5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Custom Skills -->
+                    <div class="skill-group" id="customSkillsGroup" style="display: none;">
+                        <h3 class="skill-group-title">Additional Skills</h3>
+                        <div class="skill-matrix">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Skill</th>
+                                        <th><div class="tooltip">1<span class="tooltiptext">No experience</span></div></th>
+                                        <th><div class="tooltip">2<span class="tooltiptext">Basic/familiar</span></div></th>
+                                        <th><div class="tooltip">3<span class="tooltiptext">Comfortable</span></div></th>
+                                        <th><div class="tooltip">4<span class="tooltiptext">Proficient</span></div></th>
+                                        <th><div class="tooltip">5<span class="tooltiptext">Expert</span></div></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customSkillsBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="add-skill-btn" onclick="addSkillRow()">Add Custom Skill</button>
+            </div>
+            
+            <!-- 2. Learning Interests -->
+            <div class="section">
+                <h2 class="section-title">2. Learning Interests <small style="background: #e74c3c; color: white;">Required</small></h2>
+                <label>Select all skills/tools you're interested in learning: <span class="required" style="color: #e74c3c;">(Select at least one)</span></label>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_sharepoint" name="learning_interests" value="SharePoint">
+                        <label for="learn_sharepoint">SharePoint</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_copilot" name="learning_interests" value="Copilot/MS AI">
+                        <label for="learn_copilot">Copilot/MS AI</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_automation" name="learning_interests" value="Automation tools">
+                        <label for="learn_automation">Automation tools</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_ocr" name="learning_interests" value="OCR">
+                        <label for="learn_ocr">OCR</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_api" name="learning_interests" value="API Integration">
+                        <label for="learn_api">API Integration</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_python" name="learning_interests" value="Python">
+                        <label for="learn_python">Python</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_cpp" name="learning_interests" value="C++">
+                        <label for="learn_cpp">C++</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_java" name="learning_interests" value="Java">
+                        <label for="learn_java">Java</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_sql" name="learning_interests" value="SQL">
+                        <label for="learn_sql">SQL</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_servicenow" name="learning_interests" value="ServiceNow">
+                        <label for="learn_servicenow">ServiceNow</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_activedirectory" name="learning_interests" value="Active Directory">
+                        <label for="learn_activedirectory">Active Directory</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_powerbi" name="learning_interests" value="Power BI">
+                        <label for="learn_powerbi">Power BI</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_azure" name="learning_interests" value="Azure/Microsoft 365">
+                        <label for="learn_azure">Azure/Microsoft 365</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_git" name="learning_interests" value="Git/Azure DevOps">
+                        <label for="learn_git">Git/Azure DevOps</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_excel" name="learning_interests" value="Excel (Advanced)">
+                        <label for="learn_excel">Excel (Advanced)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_velocloud" name="learning_interests" value="VeloCloud/SD-WAN">
+                        <label for="learn_velocloud">VeloCloud/SD-WAN</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_switches" name="learning_interests" value="Network Switches">
+                        <label for="learn_switches">Network Switches</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_firewall" name="learning_interests" value="Firewall Management">
+                        <label for="learn_firewall">Firewall Management</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_protocols" name="learning_interests" value="Network Protocols">
+                        <label for="learn_protocols">Network Protocols</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="learn_none" name="learning_interests" value="None" onclick="handleNoneCheckbox(this)">
+                        <label for="learn_none">None - Not interested in learning new skills at this time</label>
+                    </div>
+                </div>
+                
+                <div class="form-group" style="margin-top: 15px;">
+                    <label for="other_learning">Other learning interests (please specify)</label>
+                    <input type="text" id="other_learning" name="other_learning_interests" placeholder="e.g., Machine Learning, Docker, Cloud Computing">
+                </div>
+            </div>
+            
+            <!-- 3. Project Participation Interest -->
+            <div class="section">
+                <h2 class="section-title participation">3. Project Participation Interest</h2>
+                <div class="form-group">
+                    <label for="project_interest" class="required">Are you interested in working on team projects?</label>
+                    <select id="project_interest" name="project_interest" required onchange="toggleProjectSection(this.value)">
+                        <option value="">Please select</option>
+                        <option value="yes-lead">Yes - I'd like to lead projects</option>
+                        <option value="yes-participate">Yes - I'd like to participate but not lead</option>
+                        <option value="yes-support">Yes - I can provide occasional support/consultation</option>
+                        <option value="maybe">Maybe - depends on the project and timing</option>
+                        <option value="no">No - not at this time</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="project_interest_details" style="display: none;">
+                    <label for="interest_details">Please tell us more about your interest/constraints</label>
+                    <textarea id="interest_details" name="interest_details" placeholder="e.g., I'm interested in data-related projects, I can only participate in Q2, I prefer short-term projects..."></textarea>
+                </div>
+            </div>
+            
+            <!-- 4. Project Ideas -->
+            <div class="section" id="projectIdeasSection">
+                <h2 class="section-title">4. Project Ideas <small style="background: #e74c3c; color: white;">Required</small></h2>
+                <div class="info-box" id="projectInfoBox">
+                    <p>Share your project ideas. <strong style="color: #e74c3c;">At least one complete project is required (all fields).</strong></p>
+                    <p style="margin-top: 8px; font-size: 0.9em;">For each project, please provide: Title, Who Benefits, and Description.</p>
+                </div>
+                
+                <div id="projectsContainer">
+                    <div class="project-container" data-project="1">
+                        <div class="project-number">1</div>
+                        <div class="project-fields">
+                            <div class="form-group">
+                                <label for="project1_title" class="required">Project Title</label>
+                                <input type="text" id="project1_title" name="project1_title" placeholder="e.g., Automated Report Generator (Required)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project1_benefits" class="required">Who Benefits</label>
+                                <input type="text" id="project1_benefits" name="project1_benefits" placeholder="e.g., Management team, End-users, Internal processes" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="project1_description" class="required">Project Description</label>
+                                <textarea id="project1_description" name="project1_description" placeholder="Describe the project, its goals, and expected outcomes..." required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="button" class="add-project-btn" onclick="addProject()">Add Another Project</button>
+            </div>
+            
+            <!-- 5. Weekly Time Availability -->
+            <div class="section">
+                <h2 class="section-title">5. Weekly Time Availability</h2>
+                <div class="form-group">
+                    <label for="time_availability" class="required">How much time can you dedicate to projects per week?</label>
+                    <select id="time_availability" name="time_availability" required>
+                        <option value="">Select your availability</option>
+                        <option value="none">Not applicable / No time available</option>
+                        <option value="< 1 hr/week">Less than 1 hour per week</option>
+                        <option value="1-2 hrs/week">1-2 hours per week</option>
+                        <option value="2-4 hrs/week">2-4 hours per week</option>
+                        <option value="4+ hrs/week">4+ hours per week</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- 6. Additional Input -->
+            <div class="section">
+                <h2 class="section-title">6. Additional Input <small style="background: #4caf50; color: white;">Optional</small></h2>
+                <div class="form-group">
+                    <label for="additional_input">Any other skills, tools you'd like to mention, or barriers you face in participating in projects?</label>
+                    <textarea id="additional_input" name="additional_input" placeholder="Share any additional thoughts, constraints, or suggestions..."></textarea>
+                </div>
+            </div>
+            
+            <!-- Submit -->
+            <div class="submit-section">
+                <p style="font-size: 0.85em; color: #666; text-align: center; margin-bottom: 20px;">
+                    <span style="font-size: 1.1em;">🔒</span> Your responses will be kept confidential and used only for team planning purposes.
+                </p>
+                <button type="submit" class="submit-btn">Submit Survey</button>
+            </div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
