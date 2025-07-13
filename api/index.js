@@ -33,7 +33,7 @@ exports.submitSurvey = async (req, res) => {
     // Extract the form data from the request body.
     const { body } = req;
 
-    // Define the headers for the Google Sheet.
+    // Define the headers for the Google Sheet. This is now a static list of all possible columns.
     const headers = [
         'Timestamp', 'Name', 'Email', 'Project Interest', 'Interest Details', 
         'Time Availability', 'Additional Input', 'Learning Interests', 'Other Learning',
@@ -41,20 +41,14 @@ exports.submitSurvey = async (req, res) => {
         'Skill: Excel (Advanced)', 'Skill: VeloCloud/SD-WAN', 'Skill: Network Switches', 
         'Skill: Firewall Management', 'Skill: Network Protocols', 'Skill: Python', 'Skill: C++', 
         'Skill: Java', 'Skill: SQL', 'Skill: Git/Azure DevOps', 'Skill: Automation Tools', 
-        'Skill: OCR Tools', 'Skill: API Integration', 'Skill: ServiceNow', 'Skill: Active Directory'
+        'Skill: OCR Tools', 'Skill: API Integration', 'Skill: ServiceNow', 'Skill: Active Directory',
+        'Custom Skill 1: Name', 'Custom Skill 1: Rating',
+        'Custom Skill 2: Name', 'Custom Skill 2: Rating',
+        'Custom Skill 3: Name', 'Custom Skill 3: Rating',
+        'Project 1: Title', 'Project 1: Benefits', 'Project 1: Description',
+        'Project 2: Title', 'Project 2: Benefits', 'Project 2: Description',
+        'Project 3: Title', 'Project 3: Benefits', 'Project 3: Description'
     ];
-
-    // Add custom skills and projects to the headers dynamically.
-    for (let i = 1; i <= 3; i++) {
-        if (body[`custom_skill_${i}_name`]) {
-            headers.push(`Custom Skill ${i}: Name`, `Custom Skill ${i}: Rating`);
-        }
-    }
-    for (let i = 1; i <= 3; i++) {
-        if (body[`project${i}_title`]) {
-            headers.push(`Project ${i}: Title`, `Project ${i}: Benefits`, `Project ${i}: Description`);
-        }
-    }
 
     // Prepare the data row to be inserted into the sheet.
     const rowData = [
@@ -86,19 +80,13 @@ exports.submitSurvey = async (req, res) => {
         body.skill_api || '',
         body.skill_servicenow || '',
         body.skill_activedirectory || '',
+        body.custom_skill_1_name || '', body.custom_skill_1_rating || '',
+        body.custom_skill_2_name || '', body.custom_skill_2_rating || '',
+        body.custom_skill_3_name || '', body.custom_skill_3_rating || '',
+        body.project1_title || '', body.project1_benefits || '', body.project1_description || '',
+        body.project2_title || '', body.project2_benefits || '', body.project2_description || '',
+        body.project3_title || '', body.project3_benefits || '', body.project3_description || ''
     ];
-
-    // Add custom skills and projects data to the row.
-    for (let i = 1; i <= 3; i++) {
-        if (body[`custom_skill_${i}_name`]) {
-            rowData.push(body[`custom_skill_${i}_name`] || '', body[`custom_skill_${i}_rating`] || '');
-        }
-    }
-    for (let i = 1; i <= 3; i++) {
-        if (body[`project${i}_title`]) {
-            rowData.push(body[`project${i}_title`] || '', body[`project${i}_benefits`] || '', body[`project${i}_description`] || '');
-        }
-    }
 
     try {
         // Check if the sheet has headers. If not, add them.
