@@ -1,5 +1,6 @@
 # Dependencies
-/api/node_modules
+/api
+node_modules/
 
 # Service Account Keys
 # IMPORTANT: Never commit your service account key file!
