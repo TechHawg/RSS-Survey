@@ -1,3 +1,16 @@
-# === Git Ignored Files ===
-gemini.md
+# Dependencies
+/api/node_modules
+
+# Service Account Keys
+# IMPORTANT: Never commit your service account key file!
+*.json
+
+# Environment files
+.env
+
+# System files
+.DS_Store
+gemini.md 
+package.json 
+package-lock.json
 thank-you.html
